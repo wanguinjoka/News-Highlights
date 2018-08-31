@@ -9,6 +9,11 @@
         {% endif %}
     </head>
     <body>
-
+        <h2>BBC news</h2>
+         <ul>
+             {% for bbc in bbc %}
+               <li>{{ bbc.name}}</li>
+             {% endfor %}
+        </ul>
     </body>
 </html>

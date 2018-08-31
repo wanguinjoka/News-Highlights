@@ -12,14 +12,14 @@ def index():
     '''
 
     #get bbc source
-    bbc = get_source('bbc-news')
-    abc = get_source('abc-news')
-    cbs = get_source('cbs-news')
-    cnn = get_source('cnn')
-    fox = get_source('fox-news')
+    general = get_source('general')
+    business = get_source('business')
+    sports = get_source('sports')
+    entertainment = get_source('entertainment')
+
 
     title = 'SOURCES OF THE LASTEST WORLD NEWS'
-    return render_template('index.html', title = title, bbc = bbc, abc =abc, cbs =cbs, cnn=cnn, fox = fox)
+    return render_template('index.html', title = title, general = general, business= business, sports=sports, entertainment = entertainment)
 
 @app.route('/source/<int:source_id>')
 def source(source_id):

@@ -10,25 +10,25 @@ apiKey = app.config['SOURCE_API_KEY']
 #getting the source base urlli
 base_url = app.config['SOURCE_API_BASE_URL']
 
-def get_source(id):
+def get_source(category):
     '''
     function that gets the json url request
     '''
-    get_source_url = base_url.format(id, apiKey)
+    get_source_url = base_url.format(category,apiKey )
 
     with urllib.request.urlopen(get_source_url) as url:
         get_source_data = url.read()
         get_source_response = json.loads(get_source_data)
         # print(get_source_response)
-        source_articles = None
+        source_sources = None
 
-        if get_source_response['articles']:
-            source_articles_list = get_source_response['articles']
-            source_articles = process_articles(source_articles_list)
+        if get_source_response['sources']:
+            source_sources_list = get_source_response['sources']
+            source_sources = process_sources(source_sources_list)
 
-    return source_articles
+    return source_sources
 
-def process_articles(source_list):
+def process_sources(source_list):
     '''
     Function that process the source articles and transform them to a list of objects
 
@@ -37,18 +37,17 @@ def process_articles(source_list):
     returns:
         source_articles: is alist of source objects
     '''
-    source_articles = []
+    source_sources = []
     for source_item in source_list:
         id=source_item.get('id')
         name = source_item.get('name')
-        title = source_item.get('title')
         description = source_item.get('description')
         url = source_item.get('url')
-        urlToImage = source_item.get('urlToImage')
-        publishedAt = source_item.get('publishedAt')
+        category = source_item.get('category')
+        country = source_item.get('country')
 
         if id:
-            source_object = Source(id,name,title,description,url,urlToImage,publishedAt)
-            source_articles.append(source_object)
+            source_object = Source(id,name,description,url,category,country)
+            source_sources.append(source_object)
 
-    return source_articles
+    return source_sources

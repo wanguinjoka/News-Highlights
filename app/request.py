@@ -1,14 +1,20 @@
 from app import app
 import urllib.request,json
 from .models import source
+from .models import article
 
 Source = source.Source
+Article = article.Article
 
 # getting the api key
 apiKey = app.config['SOURCE_API_KEY']
 
 #getting the source base urlli
 base_url = app.config['SOURCE_API_BASE_URL']
+
+#getting the article url
+articleBase_url = app.config['ARTICLE_API_BASE_URL']
+
 
 def get_source(category):
     '''
@@ -51,3 +57,45 @@ def process_sources(source_list):
             source_sources.append(source_object)
 
     return source_sources
+
+def get_articles():
+
+    '''
+    function that gets the json response to our urlrequest
+    '''
+    get_article_url = articleBase_url.format(apiKey)
+
+    with urllib.request.urlopen(get_article_url)as url:
+        get_articles_data =url.read()
+        get_articles_response = json.loads(get_articles_data)
+
+        article_articles = None
+
+        if get_articles_response['articles']:
+            article_articles_list = get_articles_response['articles']
+            article_articles = process_articles(article_articles_list)
+
+    return article_articles
+
+def process_articles(article_list):
+
+    '''
+    function that process the articles in api and transform them to a list of objects
+
+    args:
+    article_list is a dic that contains article objects
+
+    returns:
+    article_articles is a list of article objects
+    '''
+    article_articles =[]
+    for article_item in article_list:
+        id = article_item.get('id')
+        name = article_item.get('name')
+        author = article_item.get('author')
+        description = article_item.get('description')
+        url = article_item.get('url')
+        urlToImage = article_item.get('urlToImage')
+        publishedAt = article_item.get('publishedAt')
+
+    return article_articles

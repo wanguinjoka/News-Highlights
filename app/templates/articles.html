@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2> Top headlines</h2>
+{% for topHeadlines in topHeadlines %}
+<ul>
+ <li>{{ article.urlToImage}}</li>
+ <li><a href='{{article.title}}'><{{article.title}}</a></li>
+</ul>
+{%endfor%}
+{%endblock%}

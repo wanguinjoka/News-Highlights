@@ -1,19 +1,28 @@
-<!DOCTYPE html>
+{% import 'macros.html' as macro%}
+
 <html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> View your lastest news  from around the world </title>
-        {% endif %}
-    </head>
+
     <body>
+
         <h2>BBC news</h2>
          <ul>
-             {% for bbc in bbc %}
-               <li>{{ bbc.name}}</li>
-             {% endfor %}
+             {{macro.displaySourceList(bbc)}}
         </ul>
+        <h2> ABC news</h2>
+        <ul>
+            {{macro.displaySourceList(abc)}}
+       </ul>
+        <h2>CBS news</h2>
+        <ul>
+            {{macro.displaySourceList(cbs)}}
+       </ul>
+       <h2>Cnn news</h2>
+       <ul>
+           {{macro.displaySourceList(cnn)}}
+      </ul>
+      <h2>fox news</h2>
+      <ul>
+          {{macro.displaySourceList(fox)}}
+     </ul>
     </body>
 </html>

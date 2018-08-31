@@ -19,7 +19,7 @@ def get_source(id):
     with urllib.request.urlopen(get_source_url) as url:
         get_source_data = url.read()
         get_source_response = json.loads(get_source_data)
-        print(get_source_response)
+        # print(get_source_response)
         source_articles = None
 
         if get_source_response['articles']:

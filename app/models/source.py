@@ -8,4 +8,6 @@ class Source:
         self.title = title
         self.description = description
         self.url = url
-        self.publishedat = publishedAt
+        self.publishedAt = publishedAt
+
+        

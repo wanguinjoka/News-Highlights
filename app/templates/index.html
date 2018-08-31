@@ -1,9 +1,6 @@
+{% extends 'base.html '%}
 {% import 'macros.html' as macro%}
-
-<html>
-
-    <body>
-
+{%block content%}
         <h2>BBC news</h2>
          <ul>
              {{macro.displaySourceList(bbc)}}
@@ -24,5 +21,4 @@
       <ul>
           {{macro.displaySourceList(fox)}}
      </ul>
-    </body>
-</html>
+{%endblock%}

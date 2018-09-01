@@ -1,21 +1,64 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro%}
+<!--stylesblock -->
+{%block styles%}
+{{ super() }}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+<!--Contentblock -->
 {%block content%}
-        <h2>General News</h2>
-         <ul>
-             {{macro.displaySourceList(general)}}
-        </ul>
-        <h2>Business News</h2>
-        <ul>
-            {{macro.displaySourceList(business)}}
-       </ul>
-        <h2>Sports News</h2>
-        <ul>
-            {{macro.displaySourceList(sports)}}
-       </ul>
-       <h2>Entertainment News</h2>
-       <ul>
-           {{macro.displaySourceList(entertainment)}}
-      </ul>
+<div class ="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+   <ol class="carousel-indicators">
+     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+     <li data-target="#myCarousel" data-slide-to="1"></li>
+     <li data-target="#myCarousel" data-slide-to="2"></li>
+     <li data-target="#myCarousel" data-slide-to="3"></li>
+   </ol>
+   <div class="carousel-inner">
 
+      <div class="item active">
+          <div class="carousel-caption">
+              <h2>General News</h2>
+              <p>Sources for the lastest general news</p>
+          </div>
+          {{macro.displaySourceList(general)}}
+    </div>
+    <div class="item">
+        <div class="carousel-caption">
+            <h2>Business News</h2>
+            <p>Sources for the lastest business news</p>
+        </div>
+        {{macro.displaySourceList(business)}}
+  </div>
+  <div class="item">
+      <div class="carousel-caption">
+          <h2>Sports News</h2>
+          <p>Sources for the lastest sports news</p>
+      </div>
+      {{macro.displaySourceList(sports)}}
+</div>
+<div class="item">
+    <div class="carousel-caption">
+        <h2>Entertainment News</h2>
+        <p>Sources for the lastest entertainment news</p>
+    </div>
+    {{macro.displaySourceList(entertainment)}}
+</div>
+</div>
+<!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
 {%endblock%}

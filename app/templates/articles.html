@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2> Top headlines</h2>
+<div class ="container">
 {% for topHeadlines in topHeadlines %}
 <ul>
- <li>{{ article.urlToImage}}</li>
- <li><a href='{{article.title}}'><{{article.title}}</a></li>
+ <img src="{{ article.urlToImage}}" alt ="article image" class="img-responsive">
+ <li><a href='{{article.url }}'><{{article.title}}</a></li>
+ <li>{{ article.description }}</li>
 </ul>
+</div>
 {%endfor%}
 {%endblock%}

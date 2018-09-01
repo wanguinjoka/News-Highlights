@@ -22,11 +22,11 @@ def index():
     title = 'SOURCES OF THE LASTEST WORLD NEWS'
     return render_template('index.html', title = title, general = general, business= business, sports=sports, entertainment = entertainment)
 
-@app.route('/source/<int:source_id>')
+@app.route('/article')
 def articles():
 
     '''
-    view article page function that returns the source details page and its data
+    view article page function that returns the top headlines page and its data
     '''
     topHeadlines = get_articles()
     return render_template('articles.html', topHeadlines=topHeadlines)

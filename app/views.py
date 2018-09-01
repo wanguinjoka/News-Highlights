@@ -22,7 +22,7 @@ def index():
     title = 'SOURCES OF THE LASTEST WORLD NEWS'
     return render_template('index.html', title = title, general = general, business= business, sports=sports, entertainment = entertainment)
 
-@app.route('/article')
+@app.route('/articles')
 def articles():
 
     '''

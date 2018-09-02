@@ -11,7 +11,8 @@ class SourceTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_source = Source('cnn','CNN')
+        self.new_source = Source('cnn','CNN',)
+        # self,id,name,description,url,category,country
         #remember to add elements up here that were added
     def test_instance(self):
         self.assertTrue(isinstance(self.new_source,Source))

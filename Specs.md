@@ -1,7 +1,7 @@
 ## Specifications
 | Behaviour                               | Input                                        | Output                                       |
 | :--------------------------------------:| :------------------------------------------: | :------------------------------------------: |
-| open website url                        | * https://newsHighligthsheroku.herokuapp.com | Welcome to New Highlights site               |
+| open website url                        | https://newsHighligthsheroku.herokuapp.com   | Welcome to New Highlights site               |
 | at home page view new source            | home displays sources                        | display various sources in carousel          |
 | Choose news source                      | click on new source                          | open new source site to view all articles    |
 | At home page to view top stories        | Clicks on top stories on navbar              | Opens top stories page                       |

@@ -4,5 +4,6 @@
 }
 .carousel-caption{
 	text-align: left;
+	float:left;
 	color: red;
 }

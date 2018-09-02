@@ -2,7 +2,7 @@
 {% block content %}
 <h2> Top headlines</h2>
 <div class ="container">
-{% for topHeadlines in article %}
+{% for article in article_list %}
 <ul>
  <img src="{{ article.urlToImage}}" alt ="article image" class="img-responsive">
  <li><a href='{{article.url }}'><{{article.title}}</a></li>

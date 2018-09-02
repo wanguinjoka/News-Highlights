@@ -1,11 +1,12 @@
 from flask import render_template
-from app import app
-from .request import get_source
-from .request import get_articles
+from . import main
+from ..request import get_source
+from ..request import get_articles
+from ..models import Article
 
 #views
 
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -22,7 +23,7 @@ def index():
     title = 'SOURCES OF THE LASTEST WORLD NEWS'
     return render_template('index.html', title = title, general = general, business= business, sports=sports, entertainment = entertainment)
 
-@app.route('/articles')
+@main.route('/articles')
 def articles():
 
     '''

@@ -1,20 +1,22 @@
 from app import app
 import urllib.request,json
-from .models import source
-from .models import article
-
-Source = source.Source
-Article = article.Article
+from .models import Source
+from .models import Article
 
 # getting the api key
-apiKey = app.config['SOURCE_API_KEY']
+apiKey = None
 
 #getting the source base urlli
-base_url = app.config['SOURCE_API_BASE_URL']
+base_url = None
 
 #getting the article url
-articleBase_url = app.config['ARTICLE_API_BASE_URL']
+articleBase_url = None
 
+def configure_request(app):
+    global apiKey,base_url,articleBase_url
+    apiKey = app.config['SOURCE_API_KEY']
+    base_url = app.config['SOURCE_API_BASE_URL']
+    articleBase_url = app.config['ARTICLE_API_BASE_URL']
 
 def get_source(category):
     '''
@@ -90,8 +92,7 @@ def process_articles(article_list):
     '''
     article_articles =[]
     for article_item in article_list:
-        # id = article_item.get('id')
-        # name = article_item.get('name')
+        source = article_item.get('source.id')
         author = article_item.get('author')
         description = article_item.get('description')
         url = article_item.get('url')

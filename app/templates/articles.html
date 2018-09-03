@@ -2,12 +2,23 @@
 {% block content %}
 <h2> Top headlines</h2>
 <div class ="container">
-{% for article in article_list %}
-<ul>
- <img src="{{ article.urlToImage}}" alt ="article image" class="img-responsive">
- <li><a href='{{article.url }}'><{{article.title}}</a></li>
- <li>{{ article.description }}</li>
-</ul>
-</div>
-{%endfor%}
+    <div class="row">
+
+            {% for article in topHeadlines %}
+
+            <div class="thumbnail col-md-4" style="width:350px; height:420px;">
+                <h5 class="card-title">{{article.title}}</h5>
+              <img class="card-img-top" src="{{ article.urlToImage}}" alt="{{article.title}}" width="400" height="200px">
+              <div class="card-body">
+
+                <p class="card-text">{{ article.description }}</p>
+                <p>{{article.publishedAt}}</p>
+                <a href="{{article.url }}" class="btn btn-primary">Full Article</a>
+              </div>
+            </div>
+            {%endfor%}
+
+
+    </div>
+
 {%endblock%}

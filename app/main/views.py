@@ -13,7 +13,7 @@ def index():
     view root page function that returns the index page and its data
     '''
 
-    #get bbc source
+    #get various categories of new sources
     general = get_source('general')
     business = get_source('business')
     sports = get_source('sports')

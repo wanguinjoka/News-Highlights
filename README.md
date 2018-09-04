@@ -29,10 +29,10 @@ The user would:
         $ cd newsHighligths
 
 ## live link to the application
-* https://newsHighligthsheroku.herokuapp.com
+* https://news-highlights-ip.herokuapp.com/
 
 ## Technologies Used
 * Python3
 
 ## License
-MIT &copy;2017 
+MIT &copy;2017
